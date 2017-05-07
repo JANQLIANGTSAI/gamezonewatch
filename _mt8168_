@@ -1,0 +1,33 @@
+==
+
+https://github.com/JANQLIANGTSAI/gamezonewatch.git
+
+--
+** Platform **
+http://keystonejs.com/
+
+* Pre *
+1. Mongo DB 
+$ brew install mongodb
+To have launchd start mongodb now and restart at login:
+  brew services start mongodb
+Or, if you don't want/need a background service you can just run:
+  mongod --config /usr/local/etc/mongod.conf
+note: to fix rlimits too low 
+  ulimit -n 1024 && mongod --config /usr/local/etc/mongod.conf
+
+2. Yo
+$ npm install -g yo 
+
+* Install *
+==> http://keystonejs.com/getting-started/
+1. npm install -g generator-keystone
+2. yo keystone
+
+AND here we go: http://keystonejs.com/docs/getting-started/
+
+
+
+
+
+

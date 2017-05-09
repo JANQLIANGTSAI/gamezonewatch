@@ -36,6 +36,12 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.all('/contact', routes.views.contact);
+	// test
+	app.get('/maxatwork', routes.views.index);
+	app.get('/checkin', routes.views.checkin);
+	app.get('/checkout', routes.views.checkout);
+	app.get('/list', routes.views.list);
+
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

@@ -10,8 +10,8 @@ var keystone = require('keystone');
 // and documentation.
 
 keystone.init({
-	'name': 'GameZone Watch',
-	'brand': 'GameZone Watch',
+	'name': 'GameZoneWatch',
+	'brand': 'GameZoneWatch',
 
 	'less': 'public',
 	'static': 'public',
@@ -28,8 +28,12 @@ keystone.init({
 
 	// mt8168
 	'mongo': 'mongodb://localhost/gamezonewatch',
-	'cookie secret': '7c01023ca9498c937af5aa7cd90c7d27'
+	'cookie secret': '7c01023ca9498c937af5aa7cd90c7d27',
+	'session store': 'mongo',
 
+	// mt8168 - test
+	port: process.env.PORT || 8000,
+	// headless: true
 
 });
 

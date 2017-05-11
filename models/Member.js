@@ -23,12 +23,13 @@ Member.add({
 	cardId: { type: Types.Text, initial: true, required: true, unique: true, index: true },
 	isParent: { type: Types.Boolean, initial: true, required: true },
 	createdAt: { type: Types.Datetime, default: Date.now },
-  updatedAt: { type: Types.Datetime, default: Date.now }
+  updatedAt: { type: Types.Datetime, default: Date.now },
+	statusIn: { type: Types.Boolean, initial: true, required: true }
 });
 
 /**
  * Registration
  */
-Member.defaultColumns = 'groupId, pictureFn, cardId, isParent';
+Member.defaultColumns = 'groupId, pictureFn, cardId, isParent, statusIn';
 Member.defaultSort = '-groupId';
 Member.register();

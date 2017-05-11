@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<!--
+Note: You'll need the bootstrap css and js files and change the paths to them below.
+-->
+
+<html lang="en">
+<head>
+  <title>KeystoneJS API Example</title>
+
+  <link href="styles/site.min.css" media="all" rel="stylesheet" />
+</head>
+<body>
+
+
+  <section>
+    <div class='container'>
+      <div class="row well well-lg">
+        <div class="col-md-12">
+          <p>Image from first widget:</p>
+          <img id="image1" src="" alt="" />
+          <br><br>
+        </div>
+      </div>
+
+      <form action='' method="post" name='updateImgForm' id='updateImgForm' enctype='multipart/form-data'>
+        <div class='form-group' >
+          <div class='col-md-12'>
+            <label for='widgetUrl'>URL:</label>
+            <input class='form-control' type='text' id='widgetUrl' size="36">
+          </div>
+        </div>
+        <div class='form-group' >
+          <div class='col-md-4'>
+              <button class="btn btn-default" type='button' id='oldUrlBtn' onclick='updateWidget()'>Update URL</button>
+          </div>
+          <div class='col-md-4'>
+              <span id="checkMsg1">Click button to update widget URL.</span>
+          </div>
+          <div class='col-md-4'>
+
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/bootstrap/bootstrap-3.3.5.min.js?body=1"></script>
+
+  <script type="text/javascript">
+    //Global Variables
+    var serverIP = '127.0.0.1';
+    var JSONData;
+
+    //First function that is called when the document finishes loading.
+    $(document).ready( function() {
+
+      //Call server to retrieve JSON Gallery data.
+      $.getJSON('http://'+serverIP+':8000/api/frontendwidget/list', '', processJSON);
+    });
+
+    //Callback function executed when JSON data is returned.
+    //Sorts the items in data.collections into different categories.
+    function processJSON(data) {
+      debugger;
+      //Fill in the images with data from the KeystoneJS API
+      $('#image1').attr('src', data.collections[0].url1);
+      $('#image1').attr('alt', data.collections[0].alt1);
+      $('#widgetUrl').val(data.collections[0].url1);
+
+      JSONData = data; //Copy to global varible.
+    }
+
+    //This function is called when the 'Update URL' button is clicked.
+    function updateWidget() {
+      var collectionId = JSONData.collections[0]._id; //GUID of the first widget
+
+      //Update the JSON data with the data from our form.
+      JSONData.collections[0].url1 = $('#widgetUrl').val();
+
+      //Send the JSON string to the server and log a copy on the console.
+      console.log('JSON data sent: '+JSON.stringify(JSONData.collections[0])); //Used for debugging.
+      $.getJSON('http://'+serverIP+':8000/api/frontendwidget/'+collectionId+'/update', JSONData.collections[0], validateChange);
+    }
+
+    //This function handles the AJAX callback from the server after a POST request has been sent to update the widget.
+    //The purpose of this function is to validate that the data returned from the server matches the changes made.
+    function validateChange(data) {
+
+      //If the returned data matches the data in our form, then report a success.
+      if( data.collection.url1 == $('#widgetUrl').val() ) {
+        $('#checkMsg1').text('Widget successfully updated!');
+      } else {
+        $('#checkMsg1').text('Update failed!');
+      }
+    }
+
+  </script>
+
+</body>
+</html>

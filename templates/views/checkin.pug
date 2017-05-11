@@ -3,15 +3,38 @@ extends ../layouts/default
 block content
 	.container: .jumbotron
 		hr
-		.text-center
-			.row
-				.col-md-4
-					img(src='/images/gzw-in.png').img-rounded.img-responsive
-				.col-md-4
-					img(src='/images/gzw-in.png').img-rounded.img-responsive
-				.col-md-4
-					img(src='/images/gzw-in.png').img-rounded.img-responsive
-		hr
+
+		.section
+			.container
+				form(method='post', enctype='multipart/form-data', autocomplete='off', novalidate).form-horizontal.create-form.profile-form
+					input(type='hidden', name='action', value='add-link')
+
+					.row: .col-sm-8.col-sm-offset-2
+
+						//- groupId, pictureFn, cardId, isParent, statusIn
+						//- Title
+
+
+						.form-group
+							button(id="take", value="Take a photo")
+							input(type="file", name="image", accept="image/*;capture=camera")
+							canvas(id="myCanvas", width="578", height="200")
+						.form-group
+							h1 Add a Member
+							input(type='text', id='groupId', name='groupId', placeholder='Add your Group ID here').form-control
+						.form-group
+							input(type='text', id='cardId', name='cardId', placeholder='RFID No.').form-control
+						.form-group
+							select(name='isParent')
+								option(value='false') No Parent
+								option(value='true') Yes Parent
+						.form-group
+							input(type='hidden', id='statusIn', name='statusIn', placeholder='yes')
+
+
+						//- Submit
+						.form-group
+							button(type='submit', data-loading-text="Saving...").btn.btn-lg.btn-primary.btn-block Add Member
 
 block maxatwork
 		hr

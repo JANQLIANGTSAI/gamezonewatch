@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!--
+Note: You'll need the bootstrap css and js files and change the paths to them below.
+-->
+
+<html lang="en">
+<head>
+  <title>KeystoneJS API Example</title>
+
+  <link href="styles/site.min.css" media="all" rel="stylesheet" />
+</head>
+<body>
+
+  Max at work
+  
+  <section>
+    <div class='container'>
+      <div class="row well well-lg">
+        <div class="col-md-12">
+          <img id="image1" src="" alt="" width="600px" />
+          <br><br>
+          <img id="image2" src="" alt="" width="600px" />
+          <br><br>
+          <img id="image3" src="" alt="" width="600px" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/bootstrap/bootstrap-3.3.5.min.js?body=1"></script>
+
+  <script type="text/javascript">
+    //Global Variables
+    var serverIP = '<your ip address>';
+
+    //First function that is called when the document finishes loading.
+    $(document).ready( function() {
+
+      //Call server to retrieve JSON Gallery data.
+      $.getJSON('http://'+serverIP+':3000/api/frontendwidget/list', '', processJSON);
+    });
+
+    //Callback function executed when JSON data is returned.
+    //Sorts the items in data.collections into different categories.
+    function processJSON(data) {
+      //Fill in the images with data from the KeystoneJS API
+      $('#image1').attr('src', data.collections[0].url1);
+      $('#image1').attr('alt', data.collections[0].alt1);
+      $('#image2').attr('src', data.collections[1].url1);
+      $('#image2').attr('alt', data.collections[1].alt1);
+      $('#image3').attr('src', data.collections[2].url1);
+      $('#image3').attr('alt', data.collections[2].alt1);
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+'use strict';
+
+module.exports = function(Member) {
+
+Member.disableRemoteMethodByName("create", false);
+Member.disableRemoteMethodByName("upsert", true);
+Member.disableRemoteMethodByName("updateAll", true);
+Member.disableRemoteMethodByName("updateAttributes", true);
+
+Member.disableRemoteMethodByName("find", true);
+Member.disableRemoteMethodByName("findById", true);
+Member.disableRemoteMethodByName("findOne", true);
+
+Member.disableRemoteMethodByName("deleteById", true);
+
+Member.disableRemoteMethodByName("confirm", true);
+Member.disableRemoteMethodByName("count", false);
+Member.disableRemoteMethodByName("exists", true);
+Member.disableRemoteMethodByName("resetPassword", true);
+
+Member.disableRemoteMethodByName('__count__accessTokens', false);
+Member.disableRemoteMethodByName('__create__accessTokens', false);
+Member.disableRemoteMethodByName('__delete__accessTokens', false);
+Member.disableRemoteMethodByName('__destroyById__accessTokens', false);
+Member.disableRemoteMethodByName('__findById__accessTokens', false);
+Member.disableRemoteMethodByName('__get__accessTokens', false);
+Member.disableRemoteMethodByName('__updateById__accessTokens', false);
+
+};

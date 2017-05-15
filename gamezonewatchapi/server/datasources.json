@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "gzwDS": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://localhost:27017/gzwdb",
+    "database": "gzwdb",
+    "password": "",
+    "name": "gzwDS",
+    "user": "",
+    "connector": "mongodb"
+  }
+}

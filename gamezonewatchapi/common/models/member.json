@@ -1,0 +1,53 @@
+{
+  "name": "member",
+  "plural": "members",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "memberid": {
+      "type": "string",
+      "required": true
+    },
+    "fname": {
+      "type": "string"
+    },
+    "lname": {
+      "type": "string"
+    },
+    "sensorid": {
+      "type": "string"
+    },
+    "gameid": {
+      "type": "string"
+    },
+    "current_gz": {
+      "type": "string"
+    },
+    "create_date": {
+      "type": "date"
+    },
+    "modify_date": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

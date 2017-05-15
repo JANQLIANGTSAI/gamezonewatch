@@ -1,0 +1,42 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "gzwDS"
+  },
+  "AccessToken": {
+    "dataSource": "gzwDS",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "gzwDS",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "gzwDS",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "gzwDS",
+    "public": false
+  },
+  "member": {
+    "dataSource": "gzwDS",
+    "public": true
+  }
+}

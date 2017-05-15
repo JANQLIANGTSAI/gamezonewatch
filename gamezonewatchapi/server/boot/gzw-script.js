@@ -8,7 +8,7 @@ module.exports = function(app) {
 
   User.findOrCreate(
     {where: {username: 'admin'}},
-    {username: 'admin', email: 'gzwadmin@gamezonewatch.com', password: 'gzwadmin'},
+    {username: 'admin', email: 'gzwadmin@gamezonewatch.com', password: password},
     function(err, user){
       console.log(`created or exist user ${user.id}`);
       if (err) throw err;
@@ -33,16 +33,16 @@ module.exports = function(app) {
               if (err) throw err;
 
             // generate access token
-            var TWO_WEEKS = 60 * 60 * 24 * 7 * 52;
+            var FIFTYTWO_WEEKS = 60 * 60 * 24 * 7 * 52;
             User.login({
               email: user.email,           // must provide email or "username"
-              password: 'gzwadmin',               // required by default
-              ttl: TWO_WEEKS                    // keep the AccessToken alive for at least two weeks
+              password: password,               // required by default
+              ttl: FIFTYTWO_WEEKS                    // keep the AccessToken alive for at least two weeks
             }, function (err, accessToken) {
               console.log(`Token ID: ${accessToken.id}`);      // => GOkZRwg... the access token
-              console.log(accessToken.ttl);     // => 1209600 time to live
-              console.log(accessToken.created); // => 2013-12-20T21:10:20.377Z
-              console.log(accessToken.userId);  // => 1
+              // console.log(accessToken.ttl);     // => 1209600 time to live
+              // console.log(accessToken.created); // => 2013-12-20T21:10:20.377Z
+              // console.log(accessToken.userId);  // => 1
             });
 
         }

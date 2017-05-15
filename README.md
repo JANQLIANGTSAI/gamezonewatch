@@ -12,3 +12,6 @@ REST API Server
 ******************
 
 REACT FRONTEND
+- create-react-app
+https://github.com/facebookincubator/create-react-app#getting-started
+- https://reactstrap.github.io/

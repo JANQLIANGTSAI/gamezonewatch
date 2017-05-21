@@ -1,6 +1,8 @@
 {
-  "name": "app",
+  "name": "GamezoneWatch",
   "version": "0.1.0",
+  "description": "GamezoneWatch by MT8168@gamil.com",
+  "author": "mt8168@gmail.com",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",

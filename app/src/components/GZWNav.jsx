@@ -2,6 +2,7 @@ import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 class GZWNav extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -9,12 +10,15 @@ class GZWNav extends React.Component {
     this.state = {
       isOpen: false
     };
+
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
     return (
       <div>
@@ -24,10 +28,10 @@ class GZWNav extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink onClick={this.props.checkInHandle} href="#">Check In</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+                <NavLink onClick={this.props.checkOutHandle} href="#">Check Out</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

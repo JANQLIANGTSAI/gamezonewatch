@@ -18,6 +18,15 @@
   font-size: large;
 }
 
+.App-content {
+  font-size: large;
+  margin: 32px;
+}
+
+.App-footer, .push {
+  height: 155px; /* .push must be the same height as .footer */
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

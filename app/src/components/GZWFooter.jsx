@@ -1,25 +1,21 @@
 import React from 'react';
 import { Button} from 'reactstrap';
 
-class GZWButton extends React.Component {
+class GZWFooter extends React.Component {
   constructor(props) {
     super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
   }
 
   render() {
     return (
       <div>
+
+        {/*
+
+          <Button color="primary" onClick={this.handleCheckINClick}>Check In</Button>{' '}
+          <Button color="secondary" onClick={this.handleCheckOUTClick}>Check Out</Button>
+        */}
+
         <p>
           <Button color="primary">primary</Button>{' '}
           <Button color="secondary">secondary</Button>{' '}
@@ -29,13 +25,18 @@ class GZWButton extends React.Component {
           <Button color="danger">danger</Button>{' '}
           <Button color="link">link</Button>
         </p>
+
+        {/*
         <p>
-          <Button color="primary" size="lg">Large Button</Button>{' '}
-          <Button color="secondary" size="lg">Large Button</Button>
+          <br/>
+          <Button color="primary" size="sm">New Group</Button>{' '}
+          <Button color="secondary" size="sm">Add Members</Button>
         </p>
+        */}
+
       </div>
     );
   }
 }
 
-export default GZWButton;
+export default GZWFooter;
